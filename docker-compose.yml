@@ -7,5 +7,5 @@ services:
       - "4000:4000"
     volumes:
       - ./:/usr/local/tomcat
-    command: ["catalina.sh", "run"]
+    command: ["/bin/bash", "/usr/local/tomcat/bin/catalina.sh", "run"]
     restart: unless-stopped
