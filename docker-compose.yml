@@ -1,7 +1,7 @@
 services:
   tomcat:
     image: tomcat:9.0-jdk17
-    container_name: tomcat-cve-2026-34486
+    container_name: test
     ports:
       - "8080:8080"
       - "4000:4000"
