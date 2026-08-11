@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-label="아침 햇살 그림">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="45%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#sky)"/>
+  <circle cx="700" cy="130" r="70" fill="#fff7ed"/>
+  <path d="M0 420 C120 370, 230 360, 330 400 C440 445, 570 430, 720 385 C790 365, 845 350, 900 335 L900 650 L0 650 Z" fill="#1e1b4b"/>
+  <path d="M0 465 C150 430, 255 425, 355 450 C465 478, 590 478, 900 430 L900 650 L0 650 Z" fill="#0f172a" opacity="0.95"/>
+  <text x="52" y="600" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">아침 햇살</text>
+</svg>

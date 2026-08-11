@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-label="숲길 산책 그림">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="55%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#sky)"/>
+  <path d="M0 430 C120 385, 250 390, 360 430 C475 472, 585 480, 900 395 L900 650 L0 650 Z" fill="#166534" opacity="0.92"/>
+  <path d="M430 650 C430 520, 420 450, 435 360 C450 280, 470 220, 520 160" fill="none" stroke="#7c3aed" stroke-width="24" stroke-linecap="round" opacity="0.28"/>
+  <path d="M520 650 C525 500, 520 440, 505 360 C490 280, 455 220, 400 170" fill="none" stroke="#0f172a" stroke-width="20" stroke-linecap="round" opacity="0.24"/>
+  <text x="52" y="600" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">숲길 산책</text>
+</svg>

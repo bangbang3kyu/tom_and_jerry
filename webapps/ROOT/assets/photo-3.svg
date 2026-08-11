@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-label="잔잔한 바닷가 그림">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#water)"/>
+  <circle cx="720" cy="145" r="58" fill="#fff7ed" opacity="0.92"/>
+  <path d="M0 420 C150 370, 285 385, 420 430 C560 475, 690 495, 900 450 L900 650 L0 650 Z" fill="#0b1220" opacity="0.86"/>
+  <path d="M0 485 C170 450, 300 455, 430 490 C570 525, 710 540, 900 500 L900 650 L0 650 Z" fill="url(#sand)" opacity="0.78"/>
+  <text x="52" y="600" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">잔잔한 바닷가</text>
+</svg>

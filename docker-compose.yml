@@ -1,0 +1,11 @@
+services:
+  tomcat:
+    image: tomcat:9.0-jdk17
+    container_name: tomcat-cve-2026-34486
+    ports:
+      - "8080:8080"
+      - "4000:4000"
+    volumes:
+      - ./:/usr/local/tomcat
+    command: ["catalina.sh", "run"]
+    restart: unless-stopped

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Server port="8005" shutdown="SHUTDOWN">
+  <Listener className="org.apache.catalina.startup.VersionLoggerListener"/>
+  <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on"/>
+  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
+  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
+
+  <GlobalNamingResources>
+    <Resource name="UserDatabase" auth="Container"
+              type="org.apache.catalina.UserDatabase"
+              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+              pathname="conf/tomcat-users.xml"/>
+  </GlobalNamingResources>
+
+  <Service name="Catalina">
+    <Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000" redirectPort="8443"/>
+
+    <Engine name="Catalina" defaultHost="localhost">
+
+      <!-- CVE-2026-34486 漏洞配置 -->
+      <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster">
+        <Manager className="org.apache.catalina.ha.session.DeltaManager"/>
+        <Channel className="org.apache.catalina.tribes.group.GroupChannel">
+
+          <!-- 漏洞触发点：EncryptInterceptor AES/CBC -->
+          <Interceptor
+            className="org.apache.catalina.tribes.group.interceptors.EncryptInterceptor"
+            encryptionAlgorithm="AES/CBC/PKCS5Padding"
+            encryptionKey="0102030405060708090a0b0c0d0e0f10"/>
+
+          <!-- 攻击入口：0.0.0.0:4000 无认证 -->
+          <Receiver className="org.apache.catalina.tribes.transport.nio.NioReceiver"
+                    address="0.0.0.0" port="4000"/>
+
+          <Sender className="org.apache.catalina.tribes.transport.ReplicationTransmitter">
+            <Transport className="org.apache.catalina.tribes.transport.nio.PooledParallelSender"/>
+          </Sender>
+          <Interceptor className="org.apache.catalina.tribes.group.interceptors.TcpFailureDetector"/>
+          <Interceptor className="org.apache.catalina.tribes.group.interceptors.MessageDispatchInterceptor"/>
+        </Channel>
+        <Valve className="org.apache.catalina.ha.tcp.ReplicationValve" filter=""/>
+        <ClusterListener className="org.apache.catalina.ha.session.ClusterSessionListener"/>
+      </Cluster>
+
+      <Realm className="org.apache.catalina.realm.LockOutRealm">
+        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+               resourceName="UserDatabase"/>
+      </Realm>
+
+      <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true"/>
+    </Engine>
+  </Service>
+</Server>
